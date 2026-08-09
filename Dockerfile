@@ -32,8 +32,8 @@ COPY . .
 COPY init.sql /docker-entrypoint-initdb.d/
 
 # postgres config
-RUN echo "local all all md5" > /etc/postgresql/17/main/pg_hba.conf && \
-    echo "host all all 127.0.0.1/32 md5" >> /etc/postgresql/17/main/pg_hba.conf && \
+RUN echo "local all all trust" > /etc/postgresql/17/main/pg_hba.conf && \
+    echo "host all all 127.0.0.1/32 trust" >> /etc/postgresql/17/main/pg_hba.conf && \
     echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/17/main/pg_hba.conf && \
     echo "listen_addresses='*'" >> /etc/postgresql/17/main/postgresql.conf
 
