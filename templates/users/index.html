@@ -1,0 +1,22 @@
+<!-- users/index.html -->
+
+{% extends "layouts/layout.html" %}
+
+<!-- этот блок заменит блок title из родительского шаблона -->
+{% block title %}Пользователи{% endblock %}
+
+<!-- этот блок заменит блок content из родительского шаблона -->
+{% block content %}
+<table>
+     {% for user in users %}
+     <tr>
+       <td>
+           {{ user.id }}
+       </td>
+       <td>
+           {{ user.name }}
+       </td>
+     </tr>
+     {% endfor %}
+ </table>
+{% endblock %}

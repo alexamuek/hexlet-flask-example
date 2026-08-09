@@ -1,0 +1,11 @@
+<form action="/users" method="get">
+  <input type="search" name="query" value="{{ query }}" />
+  <input type="submit" value="Search" />
+</form>
+<ul>
+    {% for user in data %}
+    <li>
+       {{ user.name }}
+    </li>
+     {% endfor %}
+ </ul>

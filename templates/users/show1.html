@@ -1,0 +1,12 @@
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div>
+                {{ message }}
+            </div>
+            {% endfor %}
+    {% endif %}
+{% endwith %}
+<div>id = "{{ user.id }}"</div>
+<div>name = "{{ user.name }}"</div>
+<div>emain = "{{ user.email }}"</div>

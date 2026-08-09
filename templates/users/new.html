@@ -1,0 +1,32 @@
+<!-- templates/users/new.html -->
+<h1>New User</h1>
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div>
+                {{ message }}
+            </div>
+            {% endfor %}
+    {% endif %}
+{% endwith %}
+<form action="{{ url_for('users_post') }}" method="post">
+  <div>
+    <label>
+      Имя
+      <input type="text" name="name" value="{{ user.name }}">
+    </label>
+    {% if errors['name'] %}
+      <div>{{ errors['name'] }}</div>
+    {% endif %}
+  </div>
+  <div>
+    <label>
+      Email
+      <input type="email" required name="email" value="{{ user.email }}">
+    </label>
+    {% if errors['email'] %}
+      <div>{{ errors['email'] }}</div>
+    {% endif %}
+    </div>
+  <input type="submit" value="Submit">
+</form>
